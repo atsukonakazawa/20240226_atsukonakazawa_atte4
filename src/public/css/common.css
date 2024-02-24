@@ -1,0 +1,33 @@
+body{
+    width: 1230px;
+    margin: auto;
+}
+
+header{
+    width: 100%;
+}
+
+
+.header-inner{
+    width: 100%;
+}
+
+.header-inner{
+    display: flex;
+    flex-direction: row;
+}
+
+.header-logo{
+    height: 50px;
+    margin: 10px auto 30px 30px;
+    color: black;
+    font-size: 35px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.copyright{
+    width: 100%;
+    padding-top: 30px;
+    text-align: center;
+}

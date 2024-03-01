@@ -1,0 +1,172 @@
+.header-nav {
+    height: 50px;
+    margin: 10px 0px 30px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.header-nav li {
+    padding-right: 40px;
+    list-style: none;
+}
+
+.header-nav li a {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.attendance-button {
+    background-color: transparent;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-button {
+    background-color: transparent;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.userlist-content {
+    width: 100%;
+    height: 800px;
+    background-color: #F2F2F2;
+}
+
+.userlist__title {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    width: 16%;
+    text-align: center;
+}
+
+.message-outer {
+    width: 100%;
+    height: 50px;
+    text-align: left;
+}
+
+.message {
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+    padding-left: 120px;
+    text-align: left;
+    color: blue;
+    font-size: 20px;
+}
+
+.userlist__table {
+    width: 100%;
+}
+
+.userlist__table-item {
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.title-row {
+    width: 100%;
+    height: 70px;
+    margin: 30px auto;
+    justify-content: center;
+}
+
+th {
+    padding: 30px;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+}
+
+.id-th{
+    width: 150px;
+}
+
+.each-row {
+    width: 100%;
+    height: 70px;
+    margin: 30px auto;
+    justify-content: center;
+    text-align: center;
+}
+
+tr {
+    border-bottom: solid 1px gray;
+}
+
+td {
+    font-weight: bold;
+}
+
+.id-td{
+    width: 150px;
+}
+
+.eachAttendance-button{
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.pagination li {
+    display: block;
+    border: 1px solid #ddd;
+    background-color: white;
+    padding: 10px 15px;
+}
+
+.pagination li:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.pagination li:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.pagination li a {
+    text-decoration: none;
+    border-radius: 5px;
+    color: blue;
+}
+
+.pagination .active {
+    background-color: blue;
+    border: 1px solid blue;
+    color: white;
+}
+
+.pagination li:hover:not(.active, .disabled) {
+    background-color: white;
+}
+
+.copyright {
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+}

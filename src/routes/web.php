@@ -17,9 +17,11 @@ use App\Http\Controllers\BreaktimeController;
 |
 */
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth','verified')->group(function () {
     Route::get('/', [AuthController::class,'index']);
     Route::get('/attendance',[WorkController::class,'sendDay'])->name("form.send-day");
+    Route::get('/eachattendance',[WorkController::class,'sendMonth'])->name("form.send-month");
+    Route::get('/userlist',[WorkController::class,'userlist']);
 });
 
 Route::get('/workIn',[WorkController::class,'workIn'])->name("form.work-in");
@@ -28,5 +30,7 @@ Route::get('/breakIn',[BreaktimeController::class,'breakIn'])->name("form.break-
 Route::get('/breakOut',[BreaktimeController::class,'breakOut'])->name("form.break-out");
 Route::get('/attendance/nextday',[WorkController::class,'nextDay'])->name("form.nextDay");
 Route::get('/attendance/daybefore',[WorkController::class,'dayBefore'])->name("form.dayBefore");
+Route::get('/eachattendance/monthbefore',[WorkController::class,'monthBefore'])->name("form.monthBefore");
+Route::get('/eachattendance/nextmonth',[WorkController::class,'nextMonth'])->name("form.nextMonth");
 
 

@@ -17,11 +17,13 @@ class CreateWorksTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->date('workDate');
+            $table->date('yearMonth');
             $table->time('workIn')->nullable();
             $table->time('workOut')->nullable();
             $table->time('wholeWorkTime')->nullable();
             $table->time('sumBreaktime')->nullable();
             $table->time('actualWorkTime')->nullable();
+            $table->time('monthly')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

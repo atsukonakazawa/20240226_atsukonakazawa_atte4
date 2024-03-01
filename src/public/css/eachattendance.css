@@ -1,0 +1,239 @@
+.header-nav {
+    height: 50px;
+    margin: 10px 0px 30px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.header-nav li {
+    padding-right: 40px;
+    list-style: none;
+}
+
+.header-nav li a {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.attendance-button {
+    background-color: transparent;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-button {
+    background-color: transparent;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.eachattendance-content {
+    width: 100%;
+    height: 800px;
+    background-color: #F2F2F2;
+}
+
+.eachattendance__title {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.monthly-outer {
+    width: 100%;
+    border: solid 3px teal;
+    background-color: white;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.monthly-nameLabel{
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.monthly-name{
+    margin-right: 100px;
+    font-weight: bold;
+}
+
+.monthly-timeLabel{
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.monthly-time{
+    margin-right: 200px;
+    font-weight: bold;
+}
+
+.message-outer {
+    width: 100%;
+    height: 50px;
+    text-align: left;
+}
+
+.message {
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+    padding-left: 120px;
+    text-align: left;
+    color: blue;
+    font-size: 20px;
+}
+
+.select-month {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.month-before {
+    width: 42%;
+    padding: 25px;
+    text-align: right;
+}
+
+.month-before__button {
+    width: 35px;
+    border: solid 1px teal;
+    border-radius: 3px;
+    background-color: white;
+    font-size: 20px;
+    font-weight: lighter;
+    color: teal;
+    cursor: pointer;
+}
+
+.month{
+    width: 16%;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.next-month {
+    width: 42%;
+    padding: 25px;
+    text-align: left;
+}
+
+.next-month__button {
+    width: 35px;
+    border: solid 1px teal;
+    border-radius: 3px;
+    background-color: white;
+    font-size: 20px;
+    font-weight: lighter;
+    color: teal;
+    cursor: pointer;
+}
+
+.eachattendance__table {
+    width: 100%;
+}
+
+.eachattendance__table-item {
+    width: 90%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.title-row {
+    width: 90%;
+    height: 70px;
+    margin: 30px auto;
+    justify-content: center;
+}
+
+th {
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+}
+
+.each-row {
+    width: 90%;
+    height: 70px;
+    margin: 30px auto;
+    justify-content: center;
+    text-align: center;
+}
+
+tr {
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    border-bottom: solid 1px gray;
+}
+
+td {
+    font-weight: bold;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.pagination li {
+    display: block;
+    border: 1px solid #ddd;
+    background-color: white;
+    padding: 10px 15px;
+}
+
+.pagination li:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.pagination li:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.pagination li a {
+    text-decoration: none;
+    border-radius: 5px;
+    color: teal;
+}
+
+.pagination .active {
+    background-color: teal;
+    border: 1px solid teal;
+    color: white;
+}
+
+.pagination li:hover:not(.active, .disabled) {
+    background-color: white;
+}
+
+.copyright {
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+}

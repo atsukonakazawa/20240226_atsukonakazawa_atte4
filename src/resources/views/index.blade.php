@@ -17,6 +17,9 @@
             </form>
         </li>
         <li>
+            <a href="/userlist">会員一覧</a>
+        </li>
+        <li>
             <form class="logout-form" action="/logout" method="post">
                 @csrf
                 <button class="logout-button">
@@ -109,6 +112,7 @@
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             <input type="hidden" name="workDate" value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
             <input type="hidden" name="workIn" value="{{ \Carbon\Carbon::now()->format('H:i:s') }}">
+            <input type="hidden" name="yearMonth" value="{{ \Carbon\Carbon::now()->format('Y-m-01') }}">
         </form>
 
         <form class="work-out" action="{{ route('form.work-out' )}}" method="get">

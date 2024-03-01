@@ -16,6 +16,9 @@
                 <input type="hidden" name="send_day" value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
             </form>
         </li>
+        <li>
+            <a href="/userlist">会員一覧</a>
+        </li>
         @if (Auth::check())
         <li>
             <form class="logout-form" action="/logout" method="post">
@@ -39,7 +42,6 @@
             </button>
             <input type="hidden" name="date" value="{{ $date }}">
         </form>
-
         <h2>
             {{ $date }}
         </h2>

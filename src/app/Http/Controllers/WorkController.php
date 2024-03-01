@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Work;
-use App\Models\Day;
 use App\Models\User;
 use App\Models\Breaktime;
+use App\Models\Month;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
@@ -33,6 +33,12 @@ class WorkController extends Controller
             //出勤記録がなければ、出勤Ok
             //viewから受け取った全データをworksテーブルに保存する
             $workIn = $request->all();
+            //$workIns = [
+            //    'user_id' => $request->user_id,
+            //    'workDate' => $request->workDate,
+            //    'yearMonth' => $request->yearMonth,
+            //    'workIn' => $request->workIn,
+            //];
             Work::create($workIn);
 
             //二重送信対策
@@ -352,4 +358,200 @@ class WorkController extends Controller
 
         return view('attendance',compact('date','workItems'));
     }
+
+    public function userlist(Request $request)
+    {
+        //usersテーブルの全データを取得する
+        $users = User::paginate(5);
+
+        return view('userlist',compact('users'));
+    }
+
+    public function sendMonth(Request $request)
+    {
+        //今日の年月を取得する
+        $month = $request->send_month;
+        //Carbonで年月の表示にする
+        $Carbon = new Carbon($month);
+        $YearMonth = $Carbon->format("Y-m");
+
+        //該当userの名前をusersテーブルから取得する
+        $eachUserId = $request->eachUserId;
+        $eachUsers = User::where('id',$eachUserId)
+                    ->paginate(4);
+
+        //該当月の勤務情報がworksテーブルにあるか確認する
+        $nullOrNot = Work::where('user_id',$eachUserId)
+                    ->whereDate('yearMonth',$month)
+                    ->first();
+
+        if($nullOrNot !== null)
+        {
+            //該当月の勤務情報をworksテーブルから取得する
+            $eachUserWorks = Work::where('user_id',$eachUserId)
+                        ->whereDate('yearMonth',$month)
+                        ->paginate(4);
+
+            //１ヶ月の実働時間合計を出す
+            $monthlys = Work::where('user_id',$eachUserId)
+                        ->where('yearMonth',$month)
+                        ->select('user_id')
+                        ->selectRaw('SUM(actualWorkTime) AS totalmonthly')
+                        ->groupBy('user_id')
+                        ->get();
+
+            foreach($monthlys as $monthly)
+            {
+                //１ヶ月の実働時間合計をmonthlyカラムにupdateする
+                $resultM = [
+                    'monthly' => $monthly->totalmonthly,
+                ];
+                Work::where('user_id',$eachUserId)
+                    ->where('yearMonth',$month)
+                    ->whereNull('monthly')
+                    ->update($resultM);
+
+                //updateされたworksテーブルで
+                //該当user、該当月のmonthlyカラムから最大値を取得する
+                $maxValue = Work::where('user_id',$eachUserId)
+                    ->where('yearMonth',$month)
+                    ->max('monthly');
+                $maxRecord = Work::where('user_id',$eachUserId)
+                    ->where('yearMonth',$month)
+                    ->where('monthly',$maxValue)
+                    ->first();
+            }
+                return view('eachattendance',compact('YearMonth','eachUsers','eachUserWorks','maxRecord'));
+
+        }else{
+            //もしこのuserの勤務情報がなかったら、nothingページへ
+            return view('nothing');
+        }
+    }
+
+    public function monthBefore(Request $request)
+    {
+        //今月の年月から１ヶ月前を算出する
+        $month = new Carbon($request->YearMonth);
+        $subMonth = $month->subMonth();
+        $YearMonth = $subMonth->format('Y-m');
+
+
+        //該当userの名前をusersテーブルから取得する
+        $eachUserId = $request->eachUserId;
+        $eachUsers = User::where('id',$eachUserId)
+                    ->paginate(5);
+
+        //該当月の勤務情報がworksテーブルにあるか確認する
+        $nullOrNot = Work::where('user_id',$eachUserId)
+                    ->where('yearMonth',$subMonth)
+                    ->first();
+
+        if($nullOrNot !== null)
+        {
+            //該当月の勤務情報をworksテーブルから取得する
+            $eachUserWorks = Work::where('user_id',$eachUserId)
+                        ->where('yearMonth',$subMonth)
+                        ->paginate(5);
+
+            //１ヶ月の実働時間合計を出す
+            $monthlys = Work::where('user_id',$eachUserId)
+                        ->where('yearMonth',$subMonth)
+                        ->select('user_id')
+                        ->selectRaw('SUM(actualWorkTime) AS totalmonthly')
+                        ->groupBy('user_id')
+                        ->get();
+
+            foreach($monthlys as $monthly)
+            {
+                //１ヶ月の実働時間合計をmonthlyカラムにupdateする
+                $resultM = [
+                    'monthly' => $monthly->totalmonthly,
+                ];
+                Work::where('user_id',$eachUserId)
+                    ->where('yearMonth',$submonth)
+                    ->whereNull('monthly')
+                    ->update($resultM);
+
+                //updateされたworksテーブルで
+                //該当user、該当月のmonthlyカラムから最大値を取得する
+                $maxValue = Work::where('user_id',$eachUserId)
+                    ->where('yearMonth',$month)
+                    ->max('monthly');
+                $maxRecord = Work::where('user_id',$eachUserId)
+                    ->where('yearMonth',$submonth)
+                    ->where('monthly',$maxValue)
+                    ->first();
+            }
+                return view('eachattendance',compact('YearMonth','eachUsers','eachUserWorks','maxRecord'));
+
+        }else{
+
+            //もしこのuserの勤務情報がなかったら、nothingページへ
+            return view('nothing');
+        }
+    }
+
+    public function nextMonth(Request $request)
+    {
+        //今月の年月から１ヶ月前を算出する
+        $month = new Carbon($request->YearMonth);
+        $addMonth = $month->addMonth();
+        $YearMonth = $addMonth->format('Y-m');
+
+
+        //該当userの名前をusersテーブルから取得する
+        $eachUserId = $request->eachUserId;
+        $eachUsers = User::where('id',$eachUserId)
+                    ->paginate(5);
+
+        //該当月の勤務情報をworksテーブルから取得する
+        $nullOrNot = Work::where('user_id',$eachUserId)
+                    ->where('yearMonth',$addMonth)
+                    ->first();
+
+        if($nullOrNot !== null)
+        {
+            //該当月の勤務情報をworksテーブルから取得する
+            $eachUserWorks = Work::where('user_id',$eachUserId)
+                        ->where('yearMonth',$addMonth)
+                        ->paginate(5);
+
+            //１ヶ月の実働時間合計を出す
+            $monthlys = Work::where('user_id',$eachUserId)
+                        ->where('yearMonth',$addMonth)
+                        ->select('user_id')
+                        ->selectRaw('SUM(actualWorkTime) AS totalmonthly')
+                        ->groupBy('user_id')
+                        ->get();
+
+            foreach($monthlys as $monthly)
+            {
+                //１ヶ月の実働時間合計をmonthlyカラムにupdateする
+                $resultM = [
+                    'monthly' => $monthly->totalmonthly,
+                ];
+                Work::where('user_id',$eachUserId)
+                    ->where('yearMonth',$addmonth)
+                    ->whereNull('monthly')
+                    ->update($resultM);
+
+                //updateされたworksテーブルで
+                //該当user、該当月のmonthlyカラムから最大値を取得する
+                $maxValue = Work::where('user_id',$eachUserId)
+                    ->where('yearMonth',$month)
+                    ->max('monthly');
+                $maxRecord = Work::where('user_id',$eachUserId)
+                    ->where('yearMonth',$addmonth)
+                    ->where('monthly',$maxValue)
+                    ->first();
+            }
+                return view('eachattendance',compact('YearMonth','eachUsers','eachUserWorks','maxRecord'));
+
+        }else{
+            //もしこのuserの勤務情報がなかったら、nothingページへ
+            return view('nothing');
+        }
+    }
+
 }

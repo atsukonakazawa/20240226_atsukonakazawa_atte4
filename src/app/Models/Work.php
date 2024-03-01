@@ -14,9 +14,13 @@ class Work extends Model
     [
         'user_id',
         'workDate',
+        'yearMonth',
         'workIn',
         'workOut',
-        'wholeWorkTime'
+        'wholeWorkTime',
+        'sumBreaktime',
+        'actualWorkTime',
+        'monthly'
     ];
 
     public function user()

@@ -8,8 +8,9 @@
     人事評価のため
 
 ##　アプリケーションURL  
-    ⚫︎開発環境：      https://github.com/atsukonakazawa/20240128_atsukonakazawa_atte2.git  
-    ⚫︎phpMyAdmin:   http://localhost:8080/  
+    ⚫︎開発環境：      https://github.com/atsukonakazawa/20240226_atsukonakazawa_atte4.git  
+    ⚫︎phpMyAdmin:   http://localhost:8080/ 
+    ⚫︎mailhog:      http://localhost:8025/  
     ⚫︎デプロイのURL:  ec2-43-207-193-146.ap-northeast-1.compute.amazonaws.com
 
 ##AWS  
@@ -17,9 +18,9 @@
     ルートユーザーEメールアドレス：tsqe8qm1bmqztbxbjre9@docomo.ne.jp  
     パスワード：Atte4atte4  
     ⚫︎AWSにおける進捗状況  
-     ①EC2インスタンス、S3ロール・バケット、RDSデータベース作成済  
+     ①EC2インスタンス、S3ロール・バケット、RDSデータベース作成かつそれぞれ接続済  
      ②Amazon LinuxにてNGINX、My SQL、php、Composerインストール済  
-     ③一度はgithubからEC2インスタンスにgit clone、その後S3バケットに転送にも成功したが、ローカルでファイルを手直しした際にgit pushできなかったためにEC2、S3からclone済みデータを削除したところ、エラー続きで再びcloneできなくなってしまった状態。  
+     ③一度はgithubからEC2インスタンスにgit clone、その後S3バケットに転送にも成功したが、ローカルでファイルを手直しした際にgit pushできなかったためにEC2、S3からclone済みデータを削除したところ、エラー続きで再びcloneできなくなってしまった。  
 
 ##　他のリポジトリ  
     特になし  

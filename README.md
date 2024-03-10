@@ -34,7 +34,8 @@
 
 
 ##　ER図  
-    <img width="1710" alt="0310ER図" src="https://github.com/atsukonakazawa/20240226_atsukonakazawa_atte4/assets/140526473/bef5a756-d1d5-46a7-b463-488cd7a4848d">
+    <img width="754" alt="0310ER図" src="https://github.com/atsukonakazawa/20240226_atsukonakazawa_atte4/assets/140526473/34925ee8-7272-487c-b82d-ff85805a69b1">
+
 
 
 ##　使用技術  

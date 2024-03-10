@@ -9,7 +9,7 @@
 
 ##　アプリケーションURL  
     ⚫︎開発環境：      https://github.com/atsukonakazawa/20240226_atsukonakazawa_atte4.git  
-    ⚫︎phpMyAdmin:   http://localhost:8080/ 
+    ⚫︎phpMyAdmin:   http://localhost:8080/  
     ⚫︎mailhog:      http://localhost:8025/  
     ⚫︎デプロイのURL:  ec2-43-207-193-146.ap-northeast-1.compute.amazonaws.com
 

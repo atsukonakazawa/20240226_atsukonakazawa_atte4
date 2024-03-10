@@ -10,28 +10,31 @@
 ##　アプリケーションURL  
     ⚫︎開発環境：      https://github.com/atsukonakazawa/20240128_atsukonakazawa_atte2.git  
     ⚫︎phpMyAdmin:   http://localhost:8080/  
-    ⚫︎デプロイのURL:  
+    ⚫︎デプロイのURL:  ec2-43-207-193-146.ap-northeast-1.compute.amazonaws.com
 
 ##AWS  
     ⚫︎AWSアカウント  
     ルートユーザーEメールアドレス：tsqe8qm1bmqztbxbjre9@docomo.ne.jp  
     パスワード：Atte4atte4  
-    ⚫︎進捗状況  
-     ①EC2アカウント、S3ロール・バケット、RDSデータベース作成済  
+    ⚫︎AWSにおける進捗状況  
+     ①EC2インスタンス、S3ロール・バケット、RDSデータベース作成済  
      ②Amazon LinuxにてNGINX、My SQL、php、Composerインストール済  
-     ③Amazon Linux ~/var/www/にgithubからクローンしたAtteのファイルを配置済  
+     ③一度はgithubからEC2インスタンスにgit clone、その後S3バケットに転送にも成功したが、ローカルでファイルを手直しした際にgit pushできなかったためにEC2、S3からclone済みデータを削除したところ、エラー続きで再びcloneできなくなってしまった状態。  
 
 ##　他のリポジトリ  
     特になし  
 
 ##　機能一覧  
-    <img width="479" alt="Atte  機能一覧" src="https://github.com/atsukonakazawa/20240128_atsukonakazawa_atte2/assets/140526473/8180aa2b-cd49-4701-9bce-e932d6084bf0">  
+      <img width="673" alt="0310機能一覧" src="https://github.com/atsukonakazawa/20240226_atsukonakazawa_atte4/assets/140526473/903114f2-bb39-4a1b-80a9-3ab082822d2c">
+
 
 ##　テーブル設計  
-    <img width="735" alt="Atte　テーブル仕様書" src="https://github.com/atsukonakazawa/20240128_atsukonakazawa_atte2/assets/140526473/f8c5b721-24a2-404f-89ce-5c2263f060df">  
+     <img width="729" alt="0310テーブル仕様書" src="https://github.com/atsukonakazawa/20240226_atsukonakazawa_atte4/assets/140526473/d1bf0939-0182-4efa-820a-3d3e0011fcd5">
+
 
 ##　ER図  
-    <img width="708" alt="Atte ER図" src="https://github.com/atsukonakazawa/20240128_atsukonakazawa_atte2/assets/140526473/619f32e8-66e9-4517-8935-752c86444cdf">  
+    <img width="1710" alt="0310ER図" src="https://github.com/atsukonakazawa/20240226_atsukonakazawa_atte4/assets/140526473/bef5a756-d1d5-46a7-b463-488cd7a4848d">
+
 
 ##　使用技術  
     ⚫︎PHP 8.2.11 (cli)  

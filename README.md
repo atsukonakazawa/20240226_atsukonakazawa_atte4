@@ -11,10 +11,10 @@
     ⚫︎開発環境：      https://github.com/atsukonakazawa/20240128_atsukonakazawa_atte2.git  
     ⚫︎phpMyAdmin:   http://localhost:8080/  
     ⚫︎デプロイのURL:  
-##AWS  　　
-    ⚫︎AWSアカウント  　ルートユーザーEメールアドレス：tsqe8qm1bmqztbxbjre9@docomo.ne.jp  
+##AWS　　  　　
+    ⚫︎AWSアカウント　　  　ルートユーザーEメールアドレス：tsqe8qm1bmqztbxbjre9@docomo.ne.jp  
                             　パスワード：Atte4atte4    
-    ⚫︎進捗状況  　　　①EC2アカウント、S3ロール・バケット、RDSデータベース作成済  
+    ⚫︎進捗状況　　  　　　①EC2アカウント、S3ロール・バケット、RDSデータベース作成済  
         　　　　　　　　②Amazon LinuxにてNGINX、My SQL、php、Composerインストール済  
             ③Amazon Linux ~/var/www/にgithubからクローンしたAtteのファイルを配置済  
 

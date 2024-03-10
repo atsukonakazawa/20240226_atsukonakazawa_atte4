@@ -10,13 +10,13 @@
 ##　アプリケーションURL  
     開発環境：      https://github.com/atsukonakazawa/20240128_atsukonakazawa_atte2.git  
     phpMyAdmin:   http://localhost:8080/  
-    ※まだ公開していないのでデプロイのURLは未発行
+    ※まだ公開していないのでデプロイのURLは未発行  
 ##AWS
-    AWSアカウント　ルートユーザーEメールアドレス：tsqe8qm1bmqztbxbjre9@docomo.ne.jp
-                            　パスワード：Atte4atte4
-    進捗状況　　　①EC2アカウント、S3ロール・バケット、RDSデータベース作成済
-        　　　　　　　　②Amazon LinuxにてNGINX、My SQL、php、Composerインストール済
-            ③Amazon Linux ~/var/www/にgithubからクローンしたAtteのファイルを配置済
+    AWSアカウント　ルートユーザーEメールアドレス：tsqe8qm1bmqztbxbjre9@docomo.ne.jp  
+                            　パスワード：Atte4atte4  
+    進捗状況　　　①EC2アカウント、S3ロール・バケット、RDSデータベース作成済  
+        　　　　　　　　②Amazon LinuxにてNGINX、My SQL、php、Composerインストール済  
+            ③Amazon Linux ~/var/www/にgithubからクローンしたAtteのファイルを配置済  
 
 ##　他のリポジトリ  
     特になし  
@@ -33,9 +33,9 @@
 ##　使用技術  
     PHP 8.2.11 (cli)  
     Laravel Framework 8.83.27  
-    mysql  8.0.26 - MySQL Community Server - GPL 
+    mysql  8.0.26 - MySQL Community Server - GPL   
 
-##　ローカル環境構築  
+##　ローカル環境構築    
     Dockerビルド  
     1.git clone git@github.com:coachtech-material/laravel-docker-template.git  
     2.docker compose up -d --build  

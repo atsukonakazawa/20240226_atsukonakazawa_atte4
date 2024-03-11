@@ -13,10 +13,7 @@
     ⚫︎mailhog:      http://localhost:8025/  
     ⚫︎デプロイのURL:  ec2-43-207-193-146.ap-northeast-1.compute.amazonaws.com
 
-##AWS  
-    ⚫︎AWSアカウント  
-    ルートユーザーEメールアドレス：tsqe8qm1bmqztbxbjre9@docomo.ne.jp  
-    パスワード：Atte4atte4  
+##AWS   
     ⚫︎AWSにおける進捗状況  
      ①EC2インスタンス、S3ロール・バケット、RDSデータベース作成かつそれぞれ接続済  
      ②Amazon LinuxにてNGINX、My SQL、php、Composerインストール済  
